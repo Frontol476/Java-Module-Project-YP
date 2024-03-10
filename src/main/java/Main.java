@@ -12,23 +12,23 @@ public class Main {
         //проверим на корректность ввода
         int countOfPeople = 0;
         while (!isCorrect) {
+
             try {
                 countOfPeople = scanner.nextInt();
             }catch (Exception e){
-                System.out.println("Допустим ввод только чисел");
+                System.out.println("Допустим ввод только целочисленного числа");
+                scanner.nextLine();
                 continue;
             }
-
             isCorrect = checkErrors(countOfPeople);
         }
         System.out.println("Данные приняты количество людей: " + countOfPeople);
         //Количество людей задали продолжаем, создаем калькулятор
 
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(countOfPeople);
         calculator.startAddItems();
-
+        calculator.calcAllItems();
     }
-
 
 
     //Метод для проверки корректности ввода количества людей
