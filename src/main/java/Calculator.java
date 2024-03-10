@@ -28,12 +28,17 @@ public class Calculator {
                 if (scanner.hasNextDouble()){
                     itemCost = scanner.nextDouble();
                     scanner.nextLine();
-                    break;
+                    if (itemCost<0){
+                        System.out.println("Стоимость товара не должна быть меньше нуля");
+                    }else {
+                        break;
+                    }
                 }else{
                     scanner.nextLine();
                     System.out.println("Допустим ввод только чисел, введи повторно");
                 }
             }
+
 
 
             //добавим в список
