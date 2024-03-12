@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class Calculator {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Начат процесс ввода товаров.");
         System.out.println("Введите название первого товара:");
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
         while (true) {
             String itemName = scanner.nextLine();
@@ -23,7 +25,7 @@ public class Calculator {
             }
 
             System.out.println("Введите стоимость товара: "+itemName);
-            double itemCost = 0;
+            double itemCost = 0.00;
             while (true) {
                 if (scanner.hasNextDouble()){
                     itemCost = scanner.nextDouble();
@@ -39,10 +41,8 @@ public class Calculator {
                 }
             }
 
-
-
             //добавим в список
-            Item item = new Item(itemName,itemCost);
+            Item item = new Item(itemName,itemCost);//Округлим
             itemArrayList.add(item);
 
             System.out.println("Товар "+itemName+" с ценой "+itemCost+" успешно добавлен");
