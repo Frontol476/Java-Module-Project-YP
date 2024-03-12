@@ -10,6 +10,7 @@ public class Calculator {
         this.countOfPeople = countOfPeople;
     }
 
+    Format format = new Format();
     //Инициализация добавление товаров
     public void startAddItems(){
         Scanner scanner = new Scanner(System.in);
@@ -45,7 +46,7 @@ public class Calculator {
             Item item = new Item(itemName,itemCost);//Округлим
             itemArrayList.add(item);
 
-            System.out.println("Товар "+itemName+" с ценой "+itemCost+" успешно добавлен");
+            System.out.println("Товар "+itemName+" с ценой "+String.format("%.2f",itemCost)+" "+format.getFormattedTextRUB(item.cost)+" успешно добавлен");
             System.out.println("Введите название следующего товара или введите [Завершить] чтобы завершить процесс ввода товаров:");
 
         }
@@ -65,16 +66,15 @@ public class Calculator {
     }
 
     public void calcAllItems(){
-        Format format = new Format();
 
         System.out.println("Добавленный товары:");
         double sum = 0;
         for (Item item:itemArrayList
              ) {
            sum = sum + item.cost;
-           System.out.println("Товар "+item.name+" цена "+item.cost);
+           System.out.println("Товар "+item.name+" цена "+String.format("%.2f",item.cost)+" "+format.getFormattedTextRUB(item.cost));
         }
-        System.out.println("Общая сумма равна: "+sum);
-        System.out.println("Каждый из "+countOfPeople+" персон должен заплатить по "+String.format("%.2f",sum/countOfPeople)+" "+format.getFormattedTextRUB(sum));
+        System.out.println("Общая сумма равна: "+String.format("%.2f",sum)+" "+format.getFormattedTextRUB(sum));
+        System.out.println("Каждый из "+countOfPeople+" персон должен заплатить по "+String.format("%.2f",sum/countOfPeople)+" "+format.getFormattedTextRUB(sum/countOfPeople));
     }
 }

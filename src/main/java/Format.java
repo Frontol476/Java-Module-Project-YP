@@ -3,7 +3,7 @@ public class Format {
         int costRound = (int ) Math.floor(cost);
 
         if (costRound%100 >= 11 && costRound%100 <= 19) {
-            return "Рублей";
+            return "рублей";
         } else{
             switch (costRound % 10) {
                 case 1:

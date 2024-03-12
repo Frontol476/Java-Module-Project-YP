@@ -30,7 +30,6 @@ public class Main {
         calculator.calcAllItems();
     }
 
-
     //Метод для проверки корректности ввода количества людей
     private static  boolean checkErrors(int inputText) {
 
@@ -40,7 +39,5 @@ public class Main {
         }else {
             return true;
         }
-
     }
-
 }
