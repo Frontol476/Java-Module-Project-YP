@@ -67,7 +67,7 @@ public class Calculator {
 
     public void calcAllItems(){
 
-        System.out.println("Добавленный товары:");
+        System.out.println("Добавленные товары:");
         double sum = 0;
         for (Item item:itemArrayList
              ) {
